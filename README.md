@@ -1,6 +1,7 @@
 # Vagrant Setup for MozWebQA Projects
 
-To get you started with MozWebQA projects as soon and as easily as we can.
+This project is to help get your environment setup for contributing to our
+WebQA projects as quickly and as easily as possible.
 
 ### Base Requirements
 
@@ -17,6 +18,21 @@ To get you started with MozWebQA projects as soon and as easily as we can.
 ## Usage Guide
 
 ### Getting started with Selenium based projects
+
+Most of our WebQA projects use Selenium Webdriver. If you are interested in
+contributing to our Selenium based projects, you may want to check out the
+following projects:
+
+- [marketplace-tests](https://github.com/mozilla/marketplace-tests)
+- [mcom-tests](https://github.com/mozilla/mcom-tests)
+- [sumo-tests](https://github.com/mozilla/sumo-tests)
+- [addons-tests](https://github.com/mozilla/Addon-Tests)
+- [qmo-tests](https://github.com/mozilla/qmo-tests)
+- [remo-tests](https://github.com/mozilla/remo-tests)
+- [socorro-tests](https://github.com/mozilla/Socorro-Tests)
+- [mozillians-tests](https://github.com/mozilla/mozillians-tests)
+- [mdn-tests](https://github.com/mozilla/mdn-tests)
+- [moztrap-tests](https://github.com/mozilla/moztrap-tests)
 
 #### Requirements for Selenium based projects
 
@@ -45,8 +61,10 @@ vagrant ssh -- -R 4444:localhost:4444
 
 #### Running tests
 
-To get you started, lets take `mcom-tests` as an example. Run the following 
+To get you started, lets take [mcom-tests][mt] as an example. Run the following
 commands in the `ssh session` you started using Vagrant in the previous section.
+
+[mt]: https://github.com/mozilla/mcom-tests
 
 ```
 # change directory to mozilla-projects
@@ -71,6 +89,6 @@ py.test --baseurl=http://mozilla.org --host=localhost --port=4444 \
 ```
 
 In the `py.test` command, `--platform` should be the platform on which you are
-running Firefox. In this case, it is the OS you are using. So if you are using
-Linux, set `--platform=linux` and if you are using Mac, the set 
+running Selenium Server. In this case, it is the OS you are using. So if you
+are using Linux, set `--platform=linux` and if you are using Mac, then set 
 `--platform=mac`.
