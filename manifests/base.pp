@@ -24,10 +24,3 @@ package{"git":
 	ensure  => present,
 	require => Exec["update-apt"],
 }
-
-#Install mcom-tests
-exec{"install_mcom":
-	command  => "git clone https://github.com/mozilla/mcom-tests.git",
-	cwd 	 => "/home/vagrant/mozilla-projects",
-	path     => ["/usr/bin", "/usr/local/bin", "/bin", "/usr/local/sbin", "/usr/sbin", "/sbin"],
-}
