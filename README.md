@@ -21,7 +21,9 @@ To get you started with MozWebQA projects as soon and as easily as we can.
 #### Requirements for Selenium based projects
 
 - Make sure you have Firefox installed.
-- Download Selenium Standalone Server JAR from http://code.google.com/p/selenium/downloads/list.
+- Download Selenium Standalone Server JAR from [Selenium on Google Code][GC].
+
+[GC]: http://code.google.com/p/selenium/downloads/list
 
 #### Setting up Vagrant and the VM
 
@@ -43,7 +45,8 @@ vagrant ssh -- -R 4444:localhost:4444
 
 #### Running tests
 
-To get you started, lets take `mcom-tests` as an example. Run the following commands in the `ssh` session.
+To get you started, lets take `mcom-tests` as an example. Run the following 
+commands in the `ssh session` you started using Vagrant in the previous section.
 
 ```
 # change directory to mozilla-projects
@@ -66,3 +69,8 @@ py.test --baseurl=http://mozilla.org --host=localhost --port=4444 \
 	--browsername=firefox --platform=mac \
 	tests/test_about.py	-k test_footer_link_destinations_are_correct
 ```
+
+In the `py.test` command, `--platform` should be the platform on which you are
+running Firefox. In this case, it is the OS you are using. So if you are using
+Linux, set `--platform=linux` and if you are using Mac, the set 
+`--platform=mac`.
