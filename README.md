@@ -29,5 +29,5 @@ cd mozwebqa-vagrant
 vagrant up
 
 # ssh into the VM to use it
-vagrant ssh
+vagrant ssh -- -R 4444:localhost:4444
 ```
