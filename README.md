@@ -43,21 +43,38 @@ following projects:
 
 #### Setting up Vagrant and the VM
 
-```
-# run selenium-server-standalone-<version>.jar
+1.  **Get mozwebqa-vagrant**
 
-# clone mozwebqa-vagrant from Github
-git clone git@github.com:retornam/mozwebqa-vagrant.git
+    1.  If you don't have Git, then download the latest archive from [here][archive].
+        Unzip the downloaded file and change directory to `mozwebqa-vagrant-master`.
 
-# get into the cloned project's directory
-cd mozwebqa-vagrant
+        ```
+        cd mozwebqa-vagrant-master
+        ```
 
-# use vagrant to start the VM with our configuration
-vagrant up
+    2.  If you have Git installed, then clone the repo:
 
-# ssh into the VM to use it
-vagrant ssh -- -R 4444:localhost:4444
-```
+        ```
+	    # clone mozwebqa-vagrant from Github
+	    git clone git@github.com:retornam/mozwebqa-vagrant.git
+
+	    # get into the cloned project's directory
+	    cd mozwebqa-vagrant
+	    ```
+
+2.  **Start Selenium Server and launch VM using Vagrant**
+
+    ```
+    # run selenium-server-standalone-<version>.jar
+
+    # use vagrant to start the VM with our configuration
+    vagrant up
+
+    # ssh into the VM to use it
+    vagrant ssh -- -R 4444:localhost:4444
+    ```
+
+[archive]: https://github.com/retornam/mozwebqa-vagrant/archive/master.zip
 
 #### Running tests
 
