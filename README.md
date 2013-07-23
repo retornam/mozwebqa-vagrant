@@ -37,8 +37,10 @@ following projects:
 #### Requirements for Selenium based projects
 
 - Make sure you have Firefox installed.
+- Make sure you have [Java Runtime][JRE] installed.
 - Download Selenium Standalone Server JAR from [Selenium on Google Code][GC].
 
+[JRE]: http://java.com/en/download/index.jsp
 [GC]: http://code.google.com/p/selenium/downloads/list
 
 #### Setting up Vagrant and the VM
@@ -62,11 +64,23 @@ following projects:
 	    cd mozwebqa-vagrant
 	    ```
 
-2.  **Start Selenium Server and launch VM using Vagrant**
+2.  **Start Selenium Server**
+
+    On Linux and Mac (you can just double-click as well on Mac to run the JAR):
 
     ```
-    # run selenium-server-standalone-<version>.jar
+    java -jar selenium-server-standalone-<version>.jar
+    ```
 
+    On Windows:
+
+    ```
+    # Actually I don't know, can someone fill in the right way of doing it?
+    ```
+
+3.  **Launch VM using Vagrant**
+
+    ```
     # use vagrant to start the VM with our configuration
     vagrant up
 
