@@ -80,6 +80,11 @@ following projects:
 
 3.  **Launch VM using Vagrant**
 
+    *Warning*: the next command will download files of about 280 MB in size.
+    But it will do that only once and all your future usage of this command
+    will use the files downloaded at your first run. Make sure that you are
+    on the right network that you would like to use for quick download.
+
     ```
     # use vagrant to start the VM with our configuration
     vagrant up
@@ -123,3 +128,114 @@ In the `py.test` command, `--platform` should be the platform on which you are
 running Selenium Server. In this case, it is the OS you are using. So if you
 are using Linux, set `--platform=linux` and if you are using Mac, then set 
 `--platform=mac`.
+
+### Other Important & Useful Vagrant Commands
+
+Refer to all the Vagrant commands [here][vcommands].
+
+[vcommands]: http://docs.vagrantup.com/v2/cli/index.html
+
+#### Shutdown VM
+
+To shutdown your running VM, use the following command:
+
+```
+vagrant halt
+```
+
+To forcefully shutdown the VM, use the above command with `--force` argument.
+
+**Note:** After shutting down the VM, use `vagrant up` to bring the VM back up.
+
+#### Status of VM
+
+To know if your VM is currently running or not, you can use the following
+command:
+
+```
+vagrant status
+```
+
+#### Destroy VM
+
+To destroy your VM, use the following command:
+
+```
+vagrant destroy <vm-name>
+```
+
+`<vm-name>` is the name of the VM. You may get the name using the `vagrant 
+status` command.
+
+After destroying the VM, if you run `vagrant up` command again, Vagrant will
+use the same files that it downloaded when you ran the `vagrant up` command
+for the first time.
+
+#### Suspend VM
+
+Suspending the VM means that the VM's current state will be captured and saved
+and the VM will be suspended. Now when you want to use the VM, you can resume
+from the state when you suspended the VM.
+
+To suspend the VM, use the following command:
+
+```
+vagrant suspend <vm-name>
+```
+
+`<vm-name>` is the name of the VM. You may get the name using the `vagrant 
+status` command.
+
+**Note:** don't use the `vagrant up` command to bring back a suspended VM. Use
+the `vagrant resume` command instead. See next section for more details.
+
+#### Resume a suspended VM
+
+A suspended VM should be resumed. **Don't** use the `vagrant up` command to
+bring back up a suspended VM. Use the following command instead:
+
+```
+vagrant resume <vm-name>
+```
+
+#### Reload VM
+
+Sometimes when things go wrong and you just want to restart your VM, you may
+use this command:
+
+```
+vagrant reload <vm-name>
+```
+
+### What to do when your VM get stuck or unresponsive
+
+We have heard from users who have experienced their VM gets stuck or
+unresponsive while using `vagrant up` command or `vagrant ssh`. In such
+situations, here are a few things you can try:
+
+#### Reload the VM
+
+Use the following command to shutdown and restart the VM:
+
+```
+vagrant reload <vm-name>
+```
+
+`<vm-name>` is the name of the VM. You may get the name using the `vagrant 
+status` command.
+
+#### Debug using VirtualBox GUI
+
+You may want to start VirtualBox GUI and manually restart the VM and observe
+what is going on and proceed accordingly.
+
+#### Destroy the VM and start over
+
+Destroy your existing VM using the following command:
+
+```
+vagrant destroy <vm-name>
+```
+
+And create a new VM again using `vagrant up` command. This has never failed
+us :)
