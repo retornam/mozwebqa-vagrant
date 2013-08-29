@@ -80,7 +80,7 @@ following projects:
 
 3.  **Launch VM using Vagrant**
 
-    *Warning*: the next command will download files of about 280 MB in size.
+    ***Warning***: the next command will download files of about 280 MB in size.
     But it will do that only once and all your future usage of this command
     will use the files downloaded at your first run. Make sure that you are
     on the right network that you would like to use for quick download.
@@ -128,6 +128,27 @@ In the `py.test` command, `--platform` should be the platform on which you are
 running Selenium Server. In this case, it is the OS you are using. So if you
 are using Linux, set `--platform=linux` and if you are using Mac, then set 
 `--platform=mac`.
+
+#### Synced Directories
+
+One of the amazing things about Vagrant is that it allows you to run stuff on a
+VM but you don't have to code on the VM so that you can use the tools of your
+choice that you already have installed on your machine. Vagrant does this by
+syncing a directory between the VM and your local file system. This is very
+useful! Read more about [synced directories here][synced].
+
+[synced]: http://docs.vagrantup.com/v2/synced-folders/index.html
+
+If you are using this project, the clone of this repository gets you a
+directory called `mozilla-projects` which comes with just a README.md file.
+This directory gets synced with the VM and is available in the `HOME DIRECTORY`
+in your VM by the same name. Whatever you do in this directory
+`mozilla-projects` gets reflected in the directory `mozilla-projects` in your
+clone of the repository on your local file system, and vice-versa.
+
+So if you followed all the steps above in the section on `Running tests`, you
+should now have a clone of `mcom-tests` repository in `mozilla-projects` on
+your VM and inside the clone of `mozwebqa-vagrant` on your local file system.
 
 ### Other Important & Useful Vagrant Commands
 
@@ -207,7 +228,7 @@ use this command:
 vagrant reload <vm-name>
 ```
 
-### What to do when your VM get stuck or unresponsive
+### What to do when your VM gets stuck or unresponsive
 
 We have heard from users who have experienced their VM gets stuck or
 unresponsive while using `vagrant up` command or `vagrant ssh`. In such
